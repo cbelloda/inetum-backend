@@ -1,0 +1,21 @@
+apply plugin : 'java'
+apply plugin : 'application'
+
+application {
+  mainClass = 'app.Main'
+}
+
+repositories{
+  mavenCentral()
+}
+
+dependencies{
+  compileOnly 'org.projectlombok:lombok:1.18.20'
+  annotationProcessor 'org.projectlombok:lombok:1.18.20'
+}
+
+task hellogradle {
+  doLast{
+    println "Hola como te va gradle"
+  }
+}

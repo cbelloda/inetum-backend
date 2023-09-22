@@ -1,0 +1,39 @@
+@startuml
+
+
+interface  "Pizza" {   
+  #{abstract} String prepare()
+}
+
+class  "PizzaBasic" {
+  String prepare()
+}
+
+class  "PizzaHawaiana" {
+  String prepare()
+}
+
+abstract class IngredientsDecorator{
+  String prepare()
+}
+
+class ExtraCheese{
+  String prepare()
+}
+
+class MassLarge{
+  String prepare()
+}
+
+class Onions{
+  String prepare()
+}
+
+Pizza <|.. PizzaBasic
+Pizza <|.. PizzaHawaiana
+Pizza <|.. IngredientsDecorator
+IngredientsDecorator <|-- ExtraCheese
+IngredientsDecorator <|-- MassLarge
+IngredientsDecorator <|-- Onions
+
+@enduml
