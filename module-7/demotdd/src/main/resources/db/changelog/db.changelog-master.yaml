@@ -1,0 +1,112 @@
+databaseChangeLog:
+- changeSet:
+    id: 1
+    author: cbelloda
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: nombre
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: numero_documento
+            type: VARCHAR(20)
+        - column:
+            constraints:
+              nullable: false
+            name: date_created
+            type: datetime(6)
+        - column:
+            constraints:
+              nullable: false
+            name: email
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: status
+            type: INT
+        tableName: AUTOR
+- changeSet:
+    id: 2
+    author: cbelloda
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              primaryKey: true
+            name: id
+            type: VARCHAR(100)
+        - column:
+            constraints:
+              nullable: false
+            name: titulo
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: descripcion
+            type: VARCHAR(20)
+        - column:
+            constraints:
+              nullable: false
+            name: date_created
+            type: datetime(6)
+        tableName: LIBRO
+- changeSet:
+    id: 5
+    author: cbelloda
+    comment: SNEATL INSERT FUNCIONALIDADES
+    changes: 
+    - sql: 
+        sql: INSERT INTO AUTOR (nombre,numero_documento,email,date_created,status) VALUES ('Carlos A. Saavedra','43843801','cabelloda@gmail.com',NOW(),1);
+    - sql: 
+        sql: INSERT INTO AUTOR (nombre,numero_documento,email,date_created,status) VALUES ('Carlos B. Saavedra','43843802','cbbelloda@gmail.com',NOW(),1);
+    - sql: 
+        sql: INSERT INTO AUTOR (nombre,numero_documento,email,date_created,status) VALUES ('Carlos C. Saavedra','43843803','ccbelloda@gmail.com',NOW(),1);
+    - sql: 
+        sql: INSERT INTO AUTOR (nombre,numero_documento,email,date_created,status) VALUES ('Carlos D. Saavedra','43843804','cdbelloda@gmail.com',NOW(),1);
+    - sql: 
+        sql: INSERT INTO AUTOR (nombre,numero_documento,email,date_created,status) VALUES ('Carlos E. Saavedra','43843805','cebelloda@gmail.com',NOW(),1);
+    - sql: 
+        sql: INSERT INTO LIBRO (id,titulo,descripcion,date_created) VALUES ('8385e93a-6eb0-11ee-b962-0242ac120002','Libro 1','Descripcion 1',NOW());
+    - sql: 
+        sql: INSERT INTO LIBRO (id,titulo,descripcion,date_created) VALUES ('8385e93a-6eb0-11ee-b962-0242ac120003','Libro 2','Descripcion 2',NOW());
+    - sql: 
+        sql: INSERT INTO LIBRO (id,titulo,descripcion,date_created) VALUES ('8385e93a-6eb0-11ee-b962-0242ac120004','Libro 3','Descripcion 3',NOW());
+    - sql: 
+        sql: INSERT INTO LIBRO (id,titulo,descripcion,date_created) VALUES ('8385e93a-6eb0-11ee-b962-0242ac120005','Libro 4','Descripcion 4',NOW());
+    - sql: 
+        sql: INSERT INTO LIBRO (id,titulo,descripcion,date_created) VALUES ('8385e93a-6eb0-11ee-b962-0242ac120006','Libro 5','Descripcion 5',NOW());
+    - sql: 
+        sql: INSERT INTO LIBRO (id,titulo,descripcion,date_created) VALUES ('8385e93a-6eb0-11ee-b962-0242ac120007','Libro 6','Descripcion 6',NOW());
+- changeSet:
+    id: 6
+    author: cbelloda
+    comment: SNEATL INSERT FUNCIONALIDADES
+    changes:       
+    - sql: 
+        sql: INSERT INTO AUTOR_LIBRO(id_autor,id_libro,tipo,date_created)  SELECT id,'8385e93a-6eb0-11ee-b962-0242ac120002','AUTOR',NOW() from AUTOR  where numero_documento = '43843801';
+    - sql: 
+        sql: INSERT INTO AUTOR_LIBRO(id_autor,id_libro,tipo,date_created)  SELECT id,'8385e93a-6eb0-11ee-b962-0242ac120003','COAUTOR',NOW() from AUTOR  where numero_documento = '43843801';
+    - sql: 
+        sql: INSERT INTO AUTOR_LIBRO(id_autor,id_libro,tipo,date_created)  SELECT id,'8385e93a-6eb0-11ee-b962-0242ac120003','AUTOR',NOW() from  AUTOR where numero_documento = '43843802';
+    - sql: 
+        sql: INSERT INTO AUTOR_LIBRO(id_autor,id_libro,tipo,date_created)  SELECT id,'8385e93a-6eb0-11ee-b962-0242ac120004','AUTOR',NOW() from  AUTOR where numero_documento = '43843803';
+    - sql: 
+        sql: INSERT INTO AUTOR_LIBRO(id_autor,id_libro,tipo,date_created)  SELECT id,'8385e93a-6eb0-11ee-b962-0242ac120005','AUTOR',NOW() from  AUTOR where numero_documento = '43843804';
+    - sql: 
+        sql: INSERT INTO AUTOR_LIBRO(id_autor,id_libro,tipo,date_created)  SELECT id,'8385e93a-6eb0-11ee-b962-0242ac120006','AUTOR',NOW() from  AUTOR where numero_documento = '43843804';
+    - sql: 
+        sql: INSERT INTO AUTOR_LIBRO(id_autor,id_libro,tipo,date_created)  SELECT id,'8385e93a-6eb0-11ee-b962-0242ac120007','COAUTOR',NOW() from  AUTOR where numero_documento = '43843805';
