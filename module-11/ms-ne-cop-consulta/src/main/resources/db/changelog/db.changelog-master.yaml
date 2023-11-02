@@ -57,7 +57,7 @@ databaseChangeLog:
             constraints:
               nullable: false
             name: descripcion
-            type: VARCHAR(20)
+            type: VARCHAR(255)
         - column:
             constraints:
               nullable: false
@@ -89,4 +89,4 @@ databaseChangeLog:
     - sql: 
         sql: INSERT INTO usuario (nombre,email,date_created,estado,tipo) VALUES ('bcbelloda','bcbelloda@gmail.com',NOW(),1,'BASIC');
     - sql: 
-        sql: INSERT INTO usuario (nombre,email,date_created,estado,tipo) VALUES ('ccbelloda','ccbelloda@gmail.com',NOW(),1,'PREEMIUM');
+        sql: INSERT INTO usuario (nombre,email,date_created,estado,tipo) VALUES ('ccbelloda','ccbelloda@gmail.com',NOW(),1,'PREMIUM');

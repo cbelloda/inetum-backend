@@ -5,7 +5,6 @@ import app.decorator.MyDecorator;
 import app.genericos.MyGeneric;
 import app.minterface.MyInterface;
 import app.model.Person;
-import app.paralel.Paralelo;
 
 public class Main {
 
