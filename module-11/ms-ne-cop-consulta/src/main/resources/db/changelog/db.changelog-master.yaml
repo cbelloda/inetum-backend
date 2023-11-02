@@ -1,0 +1,92 @@
+databaseChangeLog:
+- changeSet:
+    id: 1
+    author: cbelloda
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: nombre
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: date_created
+            type: datetime(6)
+        - column:
+            constraints:
+              nullable: false
+            name: email
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: estado
+            type: INT
+        - column:
+            constraints:
+              nullable: false
+            name: tipo
+            type: VARCHAR(100)
+        tableName: usuario
+- changeSet:
+    id: 2
+    author: cbelloda
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              primaryKey: true
+            name: id
+            type: VARCHAR(100)
+        - column:
+            constraints:
+              nullable: false
+            name: titulo
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: descripcion
+            type: VARCHAR(20)
+        - column:
+            constraints:
+              nullable: false
+            name: date_created
+            type: datetime(6)
+        - column:
+            constraints:
+              nullable: false
+            name: usuario
+            type: BIGINT
+        tableName: publicacion
+- changeSet:
+    id: 3
+    author: cbelloda
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: usuario
+        baseTableName: publicacion
+        constraintName: FK_usuario_publicacion_usuario
+        referencedColumnNames: id
+        referencedTableName: usuario
+- changeSet:
+    id: 4
+    author: cbelloda
+    comment: SNEATL INSERT FUNCIONALIDADES
+    changes: 
+    - sql: 
+        sql: INSERT INTO usuario (nombre,email,date_created,estado,tipo) VALUES ('acbelloda','acbelloda@gmail.com',NOW(),1,'FREEMIUM');
+    - sql: 
+        sql: INSERT INTO usuario (nombre,email,date_created,estado,tipo) VALUES ('bcbelloda','bcbelloda@gmail.com',NOW(),1,'BASIC');
+    - sql: 
+        sql: INSERT INTO usuario (nombre,email,date_created,estado,tipo) VALUES ('ccbelloda','ccbelloda@gmail.com',NOW(),1,'PREEMIUM');

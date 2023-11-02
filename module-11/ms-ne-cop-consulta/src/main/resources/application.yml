@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+  servlet:
+    context-path: /inetum/cop/ms-ne
+
+spring:
+  webflux: 
+    base-path: /inetum/cop/ms-ne
+  datasource:
+    url: jdbc:mysql://localhost:33060/db
+    username: user
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
