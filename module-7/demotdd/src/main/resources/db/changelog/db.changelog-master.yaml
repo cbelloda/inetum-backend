@@ -65,6 +65,55 @@ databaseChangeLog:
             type: datetime(6)
         tableName: LIBRO
 - changeSet:
+    id: 3
+    author: cbelloda
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: id_autor
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: id_libro
+            type: VARCHAR(100)
+        - column:
+            constraints:
+              nullable: false
+            name: tipo
+            type: VARCHAR(100)
+        - column:
+            constraints:
+              nullable: false
+            name: date_created
+            type: datetime(6)
+        tableName: AUTOR_LIBRO
+- changeSet:
+    id: 4
+    author: cbelloda
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: id_autor
+        baseTableName: AUTOR_LIBRO
+        constraintName: FK_AUTOR_LIBRO_AUTOR
+        referencedColumnNames: id
+        referencedTableName: AUTOR
+    - addForeignKeyConstraint:
+        baseColumnNames: id_libro
+        baseTableName: AUTOR_LIBRO
+        constraintName: FK_AUTOR_LIBRO_LIBRO
+        referencedColumnNames: id
+        referencedTableName: LIBRO
+- changeSet:
     id: 5
     author: cbelloda
     comment: SNEATL INSERT FUNCIONALIDADES
