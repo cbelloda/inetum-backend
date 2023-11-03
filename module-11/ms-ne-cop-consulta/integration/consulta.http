@@ -1,0 +1,8 @@
+POST http://localhost:8080/inetum/cop/ms-ne/publications/save
+Content-Type: application/json
+application-user : acbellodasaavedra
+
+{
+  "title":"El primer titulo",
+  "description":"la primera"
+}
